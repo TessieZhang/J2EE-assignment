@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+     <link href="../css/bootstrap.min.css" rel="stylesheet"> </link>
+    <link href="../css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../css/bootstrap-theme.css" rel="stylesheet"> </link>
+    <h:head>
+        <title></title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <ui:composition template="masterPage.xhtml">
+            <ui:define name="content">
+                <label>hello #{vinRecordSaleManagedBean.userName}</label>
+                <table class="search" >
+                <tr>
+                    <td>Manufacturer :</td>
+                    <td><h:inputText value="#{vinRecordSaleManagedBean.cars.manufacturer}" required="false" /></td>
+                    <td><h:commandButton class="btn btn-large btn-inverse" value="Search By manufacturer" action="#{vinRecordSaleManagedBean.searchByMake()}" /></td>
+                </tr>
+                <tr>
+                    <td>Model:</td>
+                    <td><h:inputText id="model" label="Model" size="8" value="#{vinRecordSaleManagedBean.cars.modelName}"  required="false"></h:inputText></td>
+                    <td><h:commandButton class="btn btn-large btn-inverse" type="submit" id="searchmodel" value="Search By Make" action="#{vinRecordSaleManagedBean.searchByModel()}" /></td>
+                </tr>
+                <tr>
+                    <td>Model No:</td>
+                    <td><h:inputText id="no" label="ModelNo" size="8" value="#{vinRecordSaleManagedBean.cars.modelNo}" required="false"></h:inputText></td>
+                    <td><h:commandButton class="btn btn-large btn-inverse" type="submit" id="searchno" value="Search By No" action="#{vinRecordSaleManagedBean.searchByNo()}" /></td>
+                </tr>
+                <tr>
+                    <td>Type:</td>
+                    <td><h:selectOneRadio value="#{vinRecordSaleManagedBean.cars.carType}">
+                            <f:selectItem class="radio" itemValue="SEDAN" itemLabel="sedan"/>
+                            <f:selectItem class="radio" itemValue="4WD" itemLabel="4 wheel drive"/>
+                            <f:selectItem class="radio" itemValue="TRUCK" itemLabel="truck" />
+                        </h:selectOneRadio></td>
+                    <td><h:commandButton class="btn btn-large btn-inverse" type="submit" id="searchty" value="Search By Type" action="#{vinRecordSaleManagedBean.searchByType()}" /></td>
+                </tr>
+                <tr>
+                    <td><h:commandButton class="btn btn-large btn-inverse" type="submit" id="search" value="Search" action="#{vinRecordSaleManagedBean.search()}" /></td>
+                </tr>
+                <tr>
+                    <h:dataTable class="table table-striped table-hover table-condensed" value="#{vinRecordSaleManagedBean.displays}" var="item">
+                        <h:column>    				
+                            <f:facet name="header">Model Number</f:facet>    				
+                                #{item.modelNo}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Model Name</f:facet>
+                                #{item.modelName}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Manufacturer</f:facet>
+                                #{item.manufacturer}
+                            </h:column>
+                        <h:column>
+                            <f:facet name="header">Type</f:facet>
+                                #{item.carType}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">View it</f:facet>
+                            <h:commandButton class="btn btn-large btn-inverse" type="submit" id="skip" actionListener="#{vinRecordSaleManagedBean.viewCar(item.modelNo)}" value = "view it" action="carDetails"></h:commandButton>
+                        </h:column>
+                        </h:dataTable>
+                    </tr>
+                </table> 
+            </ui:define>
+            </ui:composition>
+        </h:form>
+    </h:body>
+</html>
+

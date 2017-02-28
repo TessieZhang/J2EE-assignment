@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.9.4
+Created-By: 1.8.0_31-b13 (Oracle Corporation)
+X-COMMENT: Main-Class will be added automatically by build
+Class-Path: assignment-shared.jar lib/assignment-shared.jar 
+Main-Class: fit5042.tutex.CarSaleSystem
+

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <link href="../css/bootstrap.min.css" rel="stylesheet"> </link>
+    <link href="../css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../css/bootstrap-theme.css" rel="stylesheet"> </link>
+    <h:head>
+        <title></title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <ui:composition template="masterPage.xhtml">
+            <ui:define name="content">
+            <h:dataTable id="alcus" class="table table-striped table-hover table-condensed" value="#{salesmanBean.toCusList()}" var="item">
+                <h:column>    				
+                    <f:facet name="header">ID</f:facet>    				
+                    #{item.id}
+                </h:column>
+                <h:column>    				
+                    <f:facet name="header">Address</f:facet>    				
+                    #{item.address}
+                </h:column>
+                <h:column>    				
+                    <f:facet name="header">First Name</f:facet>    				
+                    #{item.firstName}
+                </h:column>
+                <h:column>    				
+                    <f:facet name="header">Last Name</f:facet>    				
+                    #{item.lastName}
+                </h:column>
+                <h:column>    				
+                    <f:facet name="header">Phone Number</f:facet>    				
+                    #{item.phoneNumber}
+                </h:column>
+                <h:column>    				
+                    <f:facet name="header">Update</f:facet>    				
+                    <h:commandButton value="Update" action="updateCus.xhtml" actionListener="#{salesmanBean.viewCus(item.id)}"></h:commandButton>
+                </h:column>
+                <h:column>    				
+                    <f:facet name="header">Delete</f:facet>    				
+                    <h:commandButton value="Delete" action="#{salesmanBean.deleteCus(item.id)}"></h:commandButton>
+                </h:column>
+            </h:dataTable>
+            </ui:define>
+            </ui:composition>
+        </h:form>
+    </h:body>
+</html>
+

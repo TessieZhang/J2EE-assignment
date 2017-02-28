@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <link href="../css/bootstrap.min.css" rel="stylesheet"> </link>
+    <link href="../css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../css/bootstrap-theme.css" rel="stylesheet"> </link>
+    
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        <ui:composition template="masterPage.xhtml">
+            <ui:define name="content">
+                <div class="datatable">
+                    <h:dataTable class="table table-striped table-hover table-condensed"  value="#{salesmanBean.displayAllOrder()}" var="item" >
+                    <h:column>
+                        <f:facet name = "header">Sale Id</f:facet>
+                        #{item.saleId}
+
+                    </h:column>
+                    <h:column>
+                        <f:facet name = "header">Username</f:facet>
+                        #{item.saleCusId.userName}
+
+                    </h:column>
+                    <h:column>
+                        <f:facet name = "header">Date</f:facet>
+                       #{item.saleDate}
+                    </h:column>
+                    <h:column>
+                        <f:facet name = "header">Sales Person</f:facet>
+                        #{item.salePerson}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name = "header">Pay Status</f:facet>
+                        #{item.payStatus}
+
+                    </h:column>
+                    <h:column>
+                        <f:facet name = "header">Update Status</f:facet>
+                        <h:commandButton  styleClass="btn btn-large btn-inverse"  id="update" actionListener="#{salesmanBean.updatePayStatus(item.saleId)}"  value="Update" ></h:commandButton>
+                    </h:column>
+                    </h:dataTable>
+                </div>        
+            </ui:define>
+        </ui:composition>
+        </h:form>
+    </h:body>
+</html>
+

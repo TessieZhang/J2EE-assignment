@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <link href="../css/bootstrap.min.css" rel="stylesheet"> </link>
+    <link href="../css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../css/bootstrap-theme.css" rel="stylesheet"> </link>
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+             <ui:composition template="masterPage.xhtml">
+            <ui:define name="content">
+                <div >
+                    <center><h3 style="padding-top: 30px;">Update Car</h3></center>
+                    <table class="inputform">
+                        <tr>
+                            <td>Model No :</td>
+                            <td><h:inputText value="#{vinRecordSaleManagedBean.cars.modelNo}"></h:inputText></td>
+                            </tr>
+                        <tr>
+                            <td>Car Type:</td>
+                            <td><h:inputText value="#{vinRecordSaleManagedBean.cars.carType}"></h:inputText></td>
+                        </tr>
+                        <tr>
+                            <td>Description :</td>
+                            <td><h:inputText value="#{vinRecordSaleManagedBean.cars.description}"></h:inputText></td>
+                        </tr>
+                        <tr>
+                            <td>Manufacturer :</td>
+                            <td><h:inputText value="#{vinRecordSaleManagedBean.cars.manufacturer}"></h:inputText></td>
+                        </tr>
+                        <tr>
+                            <td>Model Name :</td>
+                            <td><h:inputText value="#{vinRecordSaleManagedBean.cars.modelName}"></h:inputText></td>
+                        </tr>
+                        <tr>
+                            <td>Preview Url :</td>
+                            <td><h:inputText value="#{vinRecordSaleManagedBean.cars.preUrl}"></h:inputText></td>
+                        </tr>
+                        <tr>
+                            <td>Thumbnail :</td>
+                            <td><h:inputText value="#{vinRecordSaleManagedBean.cars.thumbnail}"></h:inputText></td>
+                        </tr>
+                        <tr>
+                            <td><h:commandButton id="submit" class="btn btn-large btn-inverse" actionListener="#{vinRecordSaleManagedBean.editCar()}" value="submit"></h:commandButton></td>
+                            <td><h:commandButton id="submit1" class="btn btn-large btn-inverse"  value="back to home" action="index"></h:commandButton></td>
+                        </tr> 
+                    </table>
+                </div>
+            </ui:define>
+            </ui:composition>  
+        </h:form>
+    </h:body>
+</html>
+
